@@ -8,7 +8,7 @@ BINARY_NAME=rpicar
 all: test build
 
 build:
-	env GOOS=linux GOARCH=arm GOARM=5 $(GOBUILD) -o $(BINARY_NAME) -v
+	env GOOS=linux GOARCH=arm GOARM=5 CC=arm-linux-gnueabi-gcc CGO_ENABLED=1 $(GOBUILD) -o $(BINARY_NAME) -v
 test:
 	$(GOTEST) -v ../
 clean:

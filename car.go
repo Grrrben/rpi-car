@@ -15,13 +15,22 @@ const pinSensorFrontEcho = 7
 const pinSensorBackTrigger = 20
 const pinSensorBackEcho = 21
 
-const pinMotorPlus = 17
-const pinMotorMinus = 18
-const pinMotorEnable = 27
+const pinMotorLeftPlus = 17
+const pinMotorLeftMinus = 18
+const pinMotorLeftEnable = 27
+
+const pinMotorRightPlus = 22
+const pinMotorRightMinus = 23
+const pinMotorRightEnable = 24
 
 type lighting struct {
 	front *gpio.Led
 	back  *gpio.Led
+}
+
+type propulsion struct {
+	left  *gpio.Motor
+	right *gpio.Motor
 }
 
 type distanceSensors struct {
@@ -34,7 +43,7 @@ type car struct {
 	lights  lighting
 	sensors distanceSensors
 	// propulsion
-	motor *gpio.Motor
+	motors propulsion
 }
 
 func NewCar() *car {
@@ -44,7 +53,9 @@ func NewCar() *car {
 	c.lights.back = gpio.NewLed(pinLedBack)
 	c.sensors.front = gpio.NewHCSR04(pinSensorFrontTrigger, pinSensorFrontEcho)
 	c.sensors.back = gpio.NewHCSR04(pinSensorBackTrigger, pinSensorBackEcho)
-	c.motor = gpio.NewMotor(pinMotorPlus, pinMotorMinus, pinMotorEnable)
+	// todo check motor pins
+	c.motors.left = gpio.NewMotor(pinMotorLeftPlus, pinMotorLeftMinus, pinMotorLeftEnable)
+	c.motors.right = gpio.NewMotor(pinMotorRightPlus, pinMotorRightMinus, pinMotorRightEnable)
 
 	return c
 }
@@ -108,19 +119,40 @@ func (c *car) drive() {
 }
 
 func (c *car) forwards() {
-	c.motor.Forwards()
+	c.motors.left.Clockwize()
+	c.motors.right.Clockwize()
+
 	c.lights.front.Blink()
 	glog.Info("Moving forwards")
 }
 
 func (c *car) backwards() {
-	c.motor.Backwards()
+	c.motors.left.CounterClockwize()
+	c.motors.right.CounterClockwize()
+
 	c.lights.back.Blink()
 	glog.Info("Moving backwards")
 }
 
+func (c *car) turnLeft() {
+	c.motors.left.CounterClockwize()
+	c.motors.right.Clockwize()
+
+	c.lights.front.Blink()
+	glog.Info("Left turn")
+}
+
+func (c *car) turnRight() {
+	c.motors.left.Clockwize()
+	c.motors.right.CounterClockwize()
+
+	c.lights.front.Blink()
+	glog.Info("Right turn")
+}
+
 func (c *car) stop() {
-	c.motor.Stop()
+	c.motors.left.Stop()
+	c.motors.right.Stop()
 	glog.Info("Stopped moving")
 
 }
