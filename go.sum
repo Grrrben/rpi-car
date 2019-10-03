@@ -1,0 +1,13 @@
+github.com/corrupt/go-smbus v0.0.0-20161116095124-d22f26546b05 h1:Ckb292DqV5bYqBJp/Quc+tZNkaqHhtXdUtg4fkE/ags=
+github.com/corrupt/go-smbus v0.0.0-20161116095124-d22f26546b05/go.mod h1:uEv7CjFLJMMPbXylPmgImmFEbutSu5MsgYS1Jt5DG80=
+github.com/davecheney/i2c v0.0.0-20140823063045-caf08501bef2/go.mod h1:dLsKZHRI/M1y9t45kzobSt8ozHf+wsCe+ahxsg51Vy0=
+github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b h1:VKtxabqXZkF25pY9ekfRL6a582T4P37/31XEstQ5p58=
+github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
+github.com/grrrben/glog v0.0.0-20180411093123-ac76efad32f3/go.mod h1:Abd4kgZAtq6C3PwVVJfDJERxdUFWqWTohWL2FEbVXMk=
+github.com/grrrben/glog v0.0.0-20190916125938-fc5e4830ae10 h1:OD2MQWjaK3xWzw5xC/YRr+3O6hGIiGzQXcdNDg2LluQ=
+github.com/grrrben/glog v0.0.0-20190916125938-fc5e4830ae10/go.mod h1:Abd4kgZAtq6C3PwVVJfDJERxdUFWqWTohWL2FEbVXMk=
+github.com/grrrben/gpio v0.0.0-20191001121606-d74472391565 h1:BT7k87ljLc3ayzaobefNAl1HNJT/H+hfQphXZC/C7og=
+github.com/grrrben/gpio v0.0.0-20191001121606-d74472391565/go.mod h1:wuHekAMBpGhpkVI5LhL990Ba1S68msANF6Ndm9nwUX8=
+github.com/stianeikeland/go-rpio v4.2.0+incompatible h1:CUOlIxdJdT+H1obJPsmg8byu7jMSECLfAN9zynm5QGo=
+github.com/stianeikeland/go-rpio v4.2.0+incompatible/go.mod h1:Sh81rdJwD96E2wja2Gd7rrKM+XZ9LrwvN2w4IXrqLR8=
+github.com/stianeikeland/go-rpio/v4 v4.4.0/go.mod h1:BkK52zk+FRk8wCTDf88/86Sojc+NfUiCAHd1ZV3RuTM=
