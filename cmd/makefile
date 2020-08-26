@@ -19,4 +19,4 @@ run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./...
 	./$(BINARY_NAME)
 publish:
-	scp $(BINARY_NAME) pi@raspberrypi.local:/home/pi/
+	scp $(BINARY_NAME) pi@rpi.local:/home/pi/
